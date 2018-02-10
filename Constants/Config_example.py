@@ -1,3 +1,3 @@
-TOKEN = "YOURTOKEN"
-ADMIN = 000000000 #your telegram ID
+TOKEN = "456102040:AAHb5LBLESVhIF21yMvzuiB90D9xgD0E2Rc"
+ADMIN = 000000000 #arashpey
 STATS = "../stats.json"
