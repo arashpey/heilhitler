@@ -14,7 +14,7 @@ class Board(object):
         self.previous = []
 
     def print_board(self):
-        board = "--- Liberal acts ---\n"
+        board = "--- قوانین لیبرالی ---\n"
         for i in range(5):
             if i < self.state.liberal_track:
                 board += u"\u2716\uFE0F" + " " #X
@@ -22,7 +22,7 @@ class Board(object):
                 board += u"\U0001F54A" + " " #dove
             else:
                 board += u"\u25FB\uFE0F" + " " #empty
-        board += "\n--- Fascist acts ---\n"
+        board += "\n--- قوانین فاشیستی ---\n"
         for i in range(6):
             if i < self.state.fascist_track:
                 board += u"\u2716\uFE0F" + " " #X
@@ -41,23 +41,23 @@ class Board(object):
                 elif action == "choose":
                     board += u"\U0001F454" + " " # tie
 
-        board += "\n--- Election counter ---\n"
+        board += "\n--- شمارش انتخابات ---\n"
         for i in range(3):
             if i < self.state.failed_votes:
                 board += u"\u2716\uFE0F" + " " #X
             else:
                 board += u"\u25FB\uFE0F" + " " #empty
 
-        board += "\n--- Presidential order  ---\n"
+        board += "\n--- ترتیب نامزدی  ---\n"
         for player in self.game.player_sequence:
             board += player.name + " " + u"\u27A1\uFE0F" + " "
         board = board[:-3]
         board += u"\U0001F501"
-        board += "\n\nThere are " + str(len(self.policies)) + " policies left on the pile."
+        board += "\n\nحالا " + str(len(self.policies)) + " لایحه برای تصویب باقی مانده."
         if self.state.fascist_track >= 3:
-            board += "\n\n" + u"\u203C\uFE0F" + " Beware: If Hitler gets elected as Chancellor the fascists win the game! " + u"\u203C\uFE0F"
+            board += "\n\n" + u"\u203C\uFE0F" + "هیتلرزون! اگر هیتلر به عنوان معاون تایید شود، فاشیستها برنده میشوند." + u"\u203C\uFE0F"
         if len(self.state.not_hitlers) > 0:
-            board += "\n\nWe know that the following players are not Hitler because they got elected as Chancellor after 3 fascist policies:\n"
+            board += "\n\nبازیکنان زیر در هیتلر زون معاون شده اند و بنابراین هیتلر نیستند:\n"
             for nh in self.state.not_hitlers:
                 board += nh.name + ", "
             board = board[:-2]
